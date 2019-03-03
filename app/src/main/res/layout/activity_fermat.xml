@@ -41,8 +41,8 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/a_fibonacci_number_of_terms"
-        android:layout_width="@dimen/text_width_small"
+        android:id="@+id/a_fermat_input"
+        android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
