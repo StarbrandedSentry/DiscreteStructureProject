@@ -1,0 +1,20 @@
+<resources>
+    <dimen name="defHeight">36dp</dimen>
+    <dimen name="defWidth">360dp</dimen>
+
+    <dimen name="start_padding_def">14dp</dimen>
+    <dimen name="font_default">14dp</dimen>
+    <dimen name="font_large">34dp</dimen>
+    <dimen name="button_height_def">46dp</dimen>
+    <dimen name="button_width_def">300dp</dimen>
+    <dimen name="corner_radius_def">4dp</dimen>
+    <dimen name="font_med">22dp</dimen>
+    <dimen name="container_width_def">300dp</dimen>
+    <dimen name="image_height_def">60dp</dimen>
+    <dimen name="image_width_def">60dp</dimen>
+
+    <dimen name="text_height_def">46dp</dimen>
+    <dimen name="text_width_def">300dp</dimen>
+    <dimen name="text_height_small">46dp</dimen>
+    <dimen name="text_width_small">60dp</dimen>
+</resources>

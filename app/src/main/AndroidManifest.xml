@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.iibcsad.recursion">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/calcu_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/calcu_icon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activities.FermatActivity"></activity>
+        <activity android:name=".activities.PrimeActivity" />
+        <activity android:name=".activities.EuclideanActivity" />
+        <activity android:name=".activities.BernoulliActivity" />
+        <activity android:name=".activities.CollatzActivity" />
+        <activity android:name=".activities.TribonacciActivity" />
+        <activity android:name=".activities.LucasActivity" />
+        <activity android:name=".activities.FibonacciActivity" />
+        <activity android:name=".activities.AboutActivity" />
+        <activity android:name=".DevelopersActivity" />
+        <activity android:name=".activities.MenuActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
