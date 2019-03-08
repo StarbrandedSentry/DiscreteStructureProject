@@ -50,7 +50,17 @@ public class TribonacciActivity extends AppCompatActivity {
     private void calculateUntilIndex(double index)
     {
         numbers.add(String.valueOf(0));
+        if(index == 1)
+        {
+            initRecyclerView();
+            return;
+        }
         numbers.add(String.valueOf(0));
+        if(index == 2)
+        {
+            initRecyclerView();
+            return;
+        }
         numbers.add(String.valueOf(1));
 
         double a = 0, b = 0, c = 1, z, noDecimal;

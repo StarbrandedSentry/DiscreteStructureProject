@@ -41,6 +41,11 @@ public class LucasActivity extends AppCompatActivity {
                     Snackbar.make(v, "Input something!", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
+                else if(Integer.parseInt(inputIndex.getText().toString()) == 0)
+                {
+                    Snackbar.make(v, "Input is invalid!", Snackbar.LENGTH_SHORT).show();
+                    return;
+                }
                 numbers.clear();
                 calculateUntilIndex(Double.parseDouble(inputIndex.getText().toString()));
             }
@@ -50,6 +55,11 @@ public class LucasActivity extends AppCompatActivity {
     private void calculateUntilIndex(double index)
     {
         numbers.add(String.valueOf(2));
+        if(index == 1)
+        {
+            initRecyclerView();
+            return;
+        }
         numbers.add(String.valueOf(1));
 
         double x = 2,y = 1, z, noDecimal;

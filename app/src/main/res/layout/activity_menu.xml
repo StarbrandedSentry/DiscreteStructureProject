@@ -13,14 +13,15 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/button_height_def"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="1dp"
         android:background="@drawable/plain_white_button"
         android:text="development team"
+        android:textColor="@color/colorPrimary"
         android:textSize="@dimen/font_default"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/colorPrimary"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button

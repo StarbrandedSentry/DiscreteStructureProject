@@ -43,6 +43,11 @@ public class PrimeActivity extends AppCompatActivity {
                     Snackbar.make(v, "Input something!", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
+                else if(inputIndex.getText().toString().equals("1"))
+                {
+                    Snackbar.make(v, "One is already a perfect square!", Snackbar.LENGTH_SHORT).show();
+                    return;
+                }
                 else if(isPrime(Double.parseDouble(inputIndex.getText().toString())))
                 {
                     Snackbar.make(v, "Input number already a prime number!", Snackbar.LENGTH_SHORT).show();
