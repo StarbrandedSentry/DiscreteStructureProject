@@ -142,6 +142,7 @@
         android:background="@drawable/default_button"
         android:onClick="showBernoulli"
         android:text="bernoulli numbers"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/a_main_about_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

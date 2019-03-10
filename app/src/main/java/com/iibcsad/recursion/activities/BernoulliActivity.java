@@ -117,12 +117,14 @@ public class BernoulliActivity extends AppCompatActivity {
                 //numbers.add("EDIT");
                 continue;
             }*/
-
             //numbers.add(convertDecimalToFraction(end));
-            numbers.add(String.valueOf(end));
+
             //numbers.add(convertDecimalToFraction(end));
             //numbers.add(fracion(end));
             //numbers.add("EDIT");
+
+            numbers.add(String.valueOf(end));
+
         }
 
         initRecyclerView();

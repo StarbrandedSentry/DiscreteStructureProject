@@ -78,7 +78,7 @@ public class FermatActivity extends AppCompatActivity {
 
         while (!flag)
         {
-            numbers.add(n + " - " + nb.format(num) + " = " + ((n*n)-num));
+            numbers.add(n + " - " + nb.format(num) + " = " + (nb.format((n*n)-num)));
 
             if(Math.sqrt(((N * N) - num)) % 1 == 0)
             {

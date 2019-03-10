@@ -15,9 +15,11 @@ import com.iibcsad.recursion.adapters.SequenceAdapter;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class PrimeActivity extends AppCompatActivity {
     private ArrayList<String> numbers;
+    private ArrayList<Double> prep;
     private EditText inputIndex;
     private Button calculate;
     private String series = "", pure = "";
@@ -33,6 +35,7 @@ public class PrimeActivity extends AppCompatActivity {
 
         inputIndex = findViewById(R.id.a_prime_number_of_terms);
         numbers = new ArrayList<>();
+        prep = new ArrayList<>();
 
         calculate = findViewById(R.id.a_prime_calculator);
         calculate.setOnClickListener(new View.OnClickListener() {
@@ -54,13 +57,13 @@ public class PrimeActivity extends AppCompatActivity {
                     return;
                 }
                 numbers.clear();
+                prep.clear();
                 calculateUntilIndex(Double.parseDouble(inputIndex.getText().toString()));
             }
         });
     }
 
-    private void calculateUntilIndex(double index)
-    {
+    private void calculateUntilIndex(double index) {
         NumberFormat nb = new DecimalFormat("#0");
         series = "";
         pure = "";
@@ -69,16 +72,27 @@ public class PrimeActivity extends AppCompatActivity {
         boolean flag = false;
         //Toast.makeText(getApplicationContext(), isPrime(index) + "", Toast.LENGTH_SHORT).show();
 
-        while (!flag)
-        {
-            if(isPrime(index))
-            {
+        while (!flag) {
+            if (isPrime(index)) {
                 /*pure = nb.format(index) + pure;
                 numbers.add(pure);*/
+                prep.add(divisibleBy(index));
+                Collections.sort(prep);
+                //numbers.add(series);
+                String thisSeries = "";
+                for (int i = 0; i < prep.size(); i++)
+                {
+                    if(i == prep.size() - 1)
+                    {
+                        thisSeries += nb.format(prep.get(i));
+                        continue;
+                    }
+                    thisSeries += nb.format(prep.get(i)) + " * ";
+                }
+                numbers.add(thisSeries);
+
                 break;
-            }
-            else
-            {
+            } else {
                 /*if(count == 0)
                 {
                     series = nb.format(index / divisibleBy(index)) + " * " + nb.format(divisibleBy(index));
@@ -88,9 +102,23 @@ public class PrimeActivity extends AppCompatActivity {
                     count = 1;
                     continue;
                 }*/
-                series = nb.format(index / divisibleBy(index)) + pure+ " * " + nb.format(divisibleBy(index));
-                pure +=  " * " + nb.format(divisibleBy(index));
-                numbers.add(series);
+                series = nb.format(index / divisibleBy(index)) + pure + " * " + nb.format(divisibleBy(index));
+                pure += " * " + nb.format(divisibleBy(index));
+                prep.add(divisibleBy(index));
+                Collections.sort(prep);
+                //numbers.add(series);
+                String thisSeries = "";
+                for (int i = 0; i < prep.size(); i++)
+                {
+                    if(i == prep.size() - 1)
+                    {
+                        thisSeries += nb.format(prep.get(i));
+                        continue;
+                    }
+                    thisSeries += nb.format(prep.get(i)) + " * ";
+                }
+                numbers.add(nb.format(index / divisibleBy(index)) + " * " + thisSeries);
+
                 index = index / divisibleBy(index);
             }
         }
