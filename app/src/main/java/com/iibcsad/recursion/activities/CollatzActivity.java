@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.iibcsad.recursion.R;
 import com.iibcsad.recursion.adapters.SequenceAdapter;
@@ -18,8 +19,9 @@ import java.util.ArrayList;
 
 public class CollatzActivity extends AppCompatActivity {
     private ArrayList<String> numbers;
-    private EditText inputIndex;
+    private EditText inputIndex, simpleAnswer;
     private Button calculate;
+    private TextView showRecycler;
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter recyclerAdapter;
@@ -31,22 +33,67 @@ public class CollatzActivity extends AppCompatActivity {
         setContentView(R.layout.activity_collatz);
 
         inputIndex = findViewById(R.id.a_collatz_number_of_terms);
+        recyclerView = findViewById(R.id.a_collatz_view);
+        simpleAnswer = findViewById(R.id.a_collatz_simple_view);
+        showRecycler = findViewById(R.id.a_collatz_show_recycler);
+        showRecycler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                numbers.clear();
+                if(recyclerView.getVisibility() == View.GONE)
+                {
+                    recyclerView.setVisibility(View.VISIBLE);
+                    calculateUntilIndex(Double.parseDouble(inputIndex.getText().toString()));
+                }
+                else
+                {
+                    recyclerView.setVisibility(View.GONE);
+                }
+            }
+        });
         numbers = new ArrayList<>();
 
         calculate = findViewById(R.id.a_collatz_calculate);
         calculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                showRecycler.setVisibility(View.GONE);
+                recyclerView.setVisibility(View.GONE);
                 if(inputIndex.getText().toString().matches(""))
                 {
                     Snackbar.make(v, "Input something!", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
-                numbers.clear();
-                calculateUntilIndex(Double.parseDouble(inputIndex.getText().toString()));
+                calculateSimple(Double.parseDouble(inputIndex.getText().toString()));
+                showRecycler.setVisibility(View.VISIBLE);
             }
         });
     }
+
+    private void calculateSimple(double index)
+    {
+        NumberFormat nb = new DecimalFormat("#0");
+        String series = "CS = " + nb.format(index);
+
+        double x = 0,y = 1, z, noDecimal;
+
+        while(index > 1)
+        {
+            if(isEven(index))
+            {
+                index = index / 2;
+
+            }
+            else
+            {
+                index = index * 3;
+                index = index + 1;
+            }
+            series += ", " + nb.format(index);
+        }
+        simpleAnswer.setText(series);
+    }
+
     private void calculateUntilIndex(double index)
     {
         NumberFormat nb = new DecimalFormat("#0");
@@ -84,7 +131,6 @@ public class CollatzActivity extends AppCompatActivity {
 
     private void initRecyclerView()
     {
-        recyclerView = findViewById(R.id.a_collatz_view);
         recyclerView.setHasFixedSize(true);
         layoutManager = new GridLayoutManager(getApplicationContext(), 3);
         recyclerAdapter = new SequenceAdapter(numbers);

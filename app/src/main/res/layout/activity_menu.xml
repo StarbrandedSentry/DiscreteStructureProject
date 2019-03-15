@@ -65,6 +65,7 @@
         android:layout_width="@dimen/button_width_def"
         android:layout_height="@dimen/button_height_def"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/default_button"
@@ -74,7 +75,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.13999999" />
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
 
     <Button
         android:id="@+id/a_main_fibonacci_button2"
@@ -90,6 +92,7 @@
         android:text="lucas numbers"
         app:layout_constraintBottom_toTopOf="@+id/a_main_about_button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/a_main_fibonacci_button"
         app:layout_constraintVertical_bias="0.0" />

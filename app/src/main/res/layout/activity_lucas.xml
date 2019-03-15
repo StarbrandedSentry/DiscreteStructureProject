@@ -8,6 +8,59 @@
     tools:context=".activities.LucasActivity">
 
     <TextView
+        android:id="@+id/a_lucas_show_recycler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Show numbers over index"
+        android:textColor="@color/colorPrimary"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/a_lucas_scrollview"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ScrollView
+        android:id="@+id/a_lucas_scrollview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/font_default"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="@dimen/font_default"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bordered"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/a_lucas_calculate"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/font_default">
+
+            <EditText
+                android:id="@+id/a_lucas_simple_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:inputType="textMultiLine"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/font_default">
+
+            </EditText>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
         android:id="@+id/a_lucas_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -60,7 +113,6 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/a_lucas_view"
-        android:padding="2dp"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -68,11 +120,13 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/bordered"
+        android:padding="2dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/a_lucas_calculate" />
+        app:layout_constraintTop_toBottomOf="@+id/a_lucas_show_recycler" />
 
     <Button
         android:id="@+id/a_lucas_calculate"

@@ -42,6 +42,24 @@
         app:layout_constraintTop_toBottomOf="@+id/a_fibonacci_title"
         app:layout_constraintVertical_bias="0.0" />
 
+    <TextView
+        android:id="@+id/a_fibonacci_show_recycler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Show numbers over index"
+        android:textColor="@color/colorPrimary"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/a_fibonacci_scrollview"
+        app:layout_constraintVertical_bias="0.0" />
+
     <EditText
         android:id="@+id/a_fibonacci_number_of_terms"
         android:layout_width="@dimen/text_width_small"
@@ -62,17 +80,18 @@
         android:id="@+id/a_fibonacci_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:padding="2dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/bordered"
+        android:padding="2dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/a_fibonacci_calculate" />
+        app:layout_constraintTop_toBottomOf="@+id/a_fibonacci_show_recycler" />
 
     <Button
         android:id="@+id/a_fibonacci_calculate"
@@ -92,5 +111,41 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/a_fibonacci_input_title"
         app:layout_constraintVertical_bias="0.0" />
+
+    <ScrollView
+        android:id="@+id/a_fibonacci_scrollview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="@dimen/font_default"
+        android:layout_marginEnd="@dimen/font_default"
+
+        android:background="@drawable/bordered"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/a_fibonacci_calculate"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/font_default"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/a_fibonacci_simple_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:inputType="textMultiLine"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/font_default">
+
+            </EditText>
+
+        </LinearLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
